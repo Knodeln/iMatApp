@@ -27,7 +27,7 @@ public class MainViewController implements Initializable {
         @FXML
         private Button varukorg_button;
         @FXML
-        private Button tillbaka_varukorg_knapp;
+        private Button tillbaka_varukorg_button;
 
 
 
@@ -39,9 +39,9 @@ public class MainViewController implements Initializable {
         window.setScene(new Scene(root, 1000, 700));
     }
 
-    public void tillbaka_varukorg() throws IOException {
+    public void tillbaka_varukorg_press() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
-        Stage window = (Stage) tillbaka_varukorg_knapp.getScene().getWindow();
+        Stage window = (Stage) tillbaka_varukorg_button.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
     public void initialize(URL url, ResourceBundle rb) {
