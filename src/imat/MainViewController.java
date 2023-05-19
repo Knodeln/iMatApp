@@ -19,7 +19,7 @@ public class MainViewController implements Initializable {
     @FXML
     private FlowPane productsFlowPane;
 
-    private Model model;
+    private Model model = Model.getInstance();
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
