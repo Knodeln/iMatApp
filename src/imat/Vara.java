@@ -27,7 +27,7 @@ public class Vara extends AnchorPane {
 
     private Product product;
     public Vara(Product product){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductPanel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vara.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -40,10 +40,7 @@ public class Vara extends AnchorPane {
         this.product = product;
         nameLabel.setText(product.getName());
         prizeLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit());
-        imageView.setImage(model.getImage(product, kImageWidth, kImageWidth*kImageRatio));
-        if (!product.isEcological()) {
-            //ecoLabel.setText("");
-        }
+        imageView.setImage(model.getImage(product));
 
     }
     @FXML

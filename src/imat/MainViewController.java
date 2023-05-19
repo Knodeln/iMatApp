@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
@@ -30,6 +32,8 @@ public class MainViewController implements Initializable {
     private Button tillbaka_varukorg_button;
     @FXML
     private Button varukorg_button;
+    @FXML
+    private TextField searchField;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -62,6 +66,15 @@ public class MainViewController implements Initializable {
 
             productsFlowPane.getChildren().add(new Vara(product));
         }
+
+    }
+
+    @FXML
+    private void handleSearchAction(ActionEvent event) {
+
+        List<Product> matches = model.findProducts(searchField.getText());
+        updateProductList(matches);
+        System.out.println("# matching products: " + matches.size());
 
     }
 
