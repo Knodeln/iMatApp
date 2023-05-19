@@ -26,21 +26,28 @@ public class MainViewController implements Initializable {
 
         @FXML
         private Button varukorg_button;
+        @FXML
+        private Button tillbaka_varukorg_knapp;
+
+
+
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
     public void varukorg_button_press() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("varukorg_app.fxml"));
         Stage window = (Stage) varukorg_button.getScene().getWindow();
-        window.setScene(new Scene(root, 1000, 1000));
+        window.setScene(new Scene(root, 1000, 700));
+    }
 
-
-
+    public void tillbaka_varukorg() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
+        Stage window = (Stage) tillbaka_varukorg_knapp.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
     }
     public void initialize(URL url, ResourceBundle rb) {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
-        pathLabel.setText(iMatDirectory);
     }
 
 }
