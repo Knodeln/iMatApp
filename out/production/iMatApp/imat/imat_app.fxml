@@ -93,5 +93,6 @@
             </AnchorPane>
         </items>
       </SplitPane>
+      <Button fx:id="varukorg_button" mnemonicParsing="false" onAction="#varukorg_button_press" text="Varukorg" />
    </children>
 </AnchorPane>
