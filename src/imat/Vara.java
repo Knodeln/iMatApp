@@ -47,5 +47,6 @@ public class Vara extends AnchorPane {
     private void handleAddAction(ActionEvent event) {
         System.out.println("Add " + product.getName());
         model.addToShoppingCart(product);
+
     }
 }

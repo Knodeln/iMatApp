@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
@@ -34,6 +35,8 @@ public class MainViewController implements Initializable {
     private Button varukorg_button;
     @FXML
     private TextField searchField;
+    @FXML
+    private ListView shoppingCart;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
