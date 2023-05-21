@@ -13,23 +13,20 @@ import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
-public class Vara extends AnchorPane {
+public class VarukorgVara extends AnchorPane {
 
     @FXML
     private Label nameLabel;
     @FXML
     private Label prizeLabel;
-    @FXML
-    private ImageView imageView;
+
 
     private Model model = Model.getInstance();
 
-    private final static double kImageWidth = 100.0;
-    private final static double kImageRatio = 0.75;
 
-    private Product product;
-    public Vara(Product product){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("vara.fxml"));
+    private ShoppingItem shoppingItem;
+    public VarukorgVara(ShoppingItem shoppingItem){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("varukorgVara.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -39,16 +36,15 @@ public class Vara extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        this.product = product;
-        nameLabel.setText(product.getName());
-        prizeLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit());
-        imageView.setImage(model.getImage(product));
+        this.shoppingItem = shoppingItem;
+        nameLabel.setText(shoppingItem.getProduct().getName());
+        prizeLabel.setText(String.format("%.2f", shoppingItem.getProduct().getPrice()) + " " + shoppingItem.getProduct().getUnit());
 
     }
     @FXML
     private void handleAddAction(ActionEvent event) {
-        System.out.println("Add " + product.getName());
-        model.addToShoppingCart(product);
+        System.out.println("Add " + shoppingItem.getProduct().getName());
+        model.addToShoppingCart(shoppingItem.getProduct());
         String cartText = "";
 
         ShoppingCart shoppingCart = Model.getInstance().getShoppingCart();

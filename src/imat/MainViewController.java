@@ -20,13 +20,20 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.CartEvent;
+import se.chalmers.cse.dat216.project.CreditCard;
+import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
-public class MainViewController implements Initializable {
+public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private SplitPane lowerVerticalSplitPane;
     @FXML
     private FlowPane productsFlowPane;
+    @FXML
+    private FlowPane varukorgFlowPane;
 
     private Model model = Model.getInstance();
     @FXML
@@ -54,22 +61,45 @@ public class MainViewController implements Initializable {
     }
     public void initialize(URL url, ResourceBundle rb) {
 
+        model.getShoppingCart().addShoppingCartListener(this);
+
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
         updateProductList(model.getProducts());
+
+        updateVarukorgList(model.getShoppingCart().getItems());
 
     }
 
     private void updateProductList(List<Product> products) {
 
-        System.out.println("updateProductList " + products.size());
-        productsFlowPane.getChildren().clear();
+        try {
+            System.out.println("updateProductList " + products.size());
+            productsFlowPane.getChildren().clear();
 
-        for (Product product : products) {
+            for (Product product : products) {
 
-            productsFlowPane.getChildren().add(new Vara(product));
+                productsFlowPane.getChildren().add(new Vara(product));
+            }
         }
+        catch (Exception e) {
 
+        }
+    }
+
+    private void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+
+        try {
+            varukorgFlowPane.getChildren().clear();
+
+            for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
+
+                varukorgFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+            }
+        }
+        catch (Exception e) {
+
+        }
     }
 
     @FXML
@@ -81,4 +111,8 @@ public class MainViewController implements Initializable {
 
     }
 
+    @Override
+    public void shoppingCartChanged(CartEvent cartEvent) {
+
+    }
 }
