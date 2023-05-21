@@ -87,7 +87,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
-    private void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+    public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
             varukorgFlowPane.getChildren().clear();
@@ -113,6 +113,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
-
+        updateVarukorgList(model.getShoppingCart().getItems());
     }
 }

@@ -16,9 +16,12 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 public class VarukorgVara extends AnchorPane {
 
     @FXML
-    private Label nameLabel;
+    Label nameLabel;
     @FXML
-    private Label prizeLabel;
+    Label prizeLabel;
+
+    @FXML
+    Label numberLabel;
 
 
     private Model model = Model.getInstance();
@@ -39,7 +42,7 @@ public class VarukorgVara extends AnchorPane {
         this.shoppingItem = shoppingItem;
         nameLabel.setText(shoppingItem.getProduct().getName());
         prizeLabel.setText(String.format("%.2f", shoppingItem.getProduct().getPrice()) + " " + shoppingItem.getProduct().getUnit());
-
+        numberLabel.setText("Antal: " + (shoppingItem.getAmount()));
     }
     @FXML
     private void handleAddAction(ActionEvent event) {
@@ -57,4 +60,28 @@ public class VarukorgVara extends AnchorPane {
             System.out.println("during " + cartText);
         }
     }
+    @FXML
+    private void handleRemoveAction(ActionEvent event) {
+        System.out.println("Add " + shoppingItem.getProduct().getName());
+        ShoppingCart cart = model.getShoppingCart();
+        double itemsBefore = shoppingItem.getAmount();
+
+        if (itemsBefore > 1.0) {
+            cart.removeItem(shoppingItem);
+            cart.addProduct(shoppingItem.getProduct(), (itemsBefore - 1.0));
+        }
+        else {cart.removeItem(shoppingItem);}
+        String cartText = "";
+
+        ShoppingCart shoppingCart = Model.getInstance().getShoppingCart();
+
+        System.out.println("before " + cartText + shoppingCart.getItems().size());
+        for (ShoppingItem item: shoppingCart.getItems()) {
+
+            cartText = cartText + item.getProduct().getName() + " " + item.getAmount() + "\n";
+
+            System.out.println("during " + cartText);
+        }
+    }
+
 }
