@@ -22,7 +22,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" text="Fortsätt till kassan">
+            <Button fx:id="fortsätt_till_kassan" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" text="Fortsätt till kassan">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>

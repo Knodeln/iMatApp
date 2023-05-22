@@ -3,3 +3,27 @@
       -fx-font-family: "Arial";
       -fx-font-weight: bold;
   }
+.background{
+      -fx-background-color: #D5DEDE;
+    }
+.popupp{
+    -fx-background-color: #add8e6;
+    }
+.Text-title{
+    -fx-font-size: 25px;
+    -fx-font-family: "Arial";
+    -fx-font-weight:bold;
+    }
+.Massage-color{
+    -fx-background-color: #fffDfd;
+    }
+
+.close-button{
+     -fx-background-color:#ff6347;
+     }
+.button-1{
+    -fx-background-color: #5CBAE2;
+    }
+.button-2{
+    -fx-background-color: #74EA72;
+    }
