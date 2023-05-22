@@ -152,7 +152,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         Stage window = (Stage) tillbaka_varukorg_button.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void gå_till_betalnining() throws Exception {
+    public void gå_till_betalning() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
         Stage window = (Stage) betala_button.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
@@ -192,7 +192,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
-        //updateProductList(model.getProducts());
+        updateProductList(model.getProducts());
 
         updateVarukorgList(model.getShoppingCart().getItems());
 
