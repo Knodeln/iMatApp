@@ -50,6 +50,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Label Name;
+    @FXML
+    private Label antalVaror;
 
     @FXML
     private Label efternamn;
@@ -192,7 +194,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
-        //updateProductList(model.getProducts());
+        updateProductList(model.getProducts());
 
         updateVarukorgList(model.getShoppingCart().getItems());
 
@@ -241,5 +243,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
+
     }
 }
