@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,13 +20,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.*;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 public class MainViewController implements Initializable, ShoppingCartListener {
 
@@ -144,7 +141,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private TextField searchField;
     @FXML
     private ListView shoppingCart;
-
+    @FXML
+    private FlowPane varukorgItemFlowPane;
+    @FXML
+    private FlowPane kategoriFlowPane;
+    @FXML
+    private final ToggleGroup categoryGroup = new ToggleGroup();
+    private RadioButton noGroupButton = new RadioButton("NO CATEGORY");
 
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -198,6 +201,25 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         updateVarukorgList(model.getShoppingCart().getItems());
 
+        ProductCategory[] productList = ProductCategory.values();
+
+        updateKategoriFlowPane(productList);
+
+        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
+        {
+            public void changed(ObservableValue<? extends Toggle> ob,
+                                Toggle o, Toggle n)
+            {
+
+                RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
+
+                if (rb != null) {
+                    updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
+
+                }
+            }
+        });
+
     }
 
     private void updateProductList(List<Product> products) {
@@ -216,7 +238,28 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
-    public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+    private void updateKategoriFlowPane(ProductCategory[] categories) {
+
+        try {
+            System.out.println("updateProductList " );
+            kategoriFlowPane.getChildren().clear();
+            noGroupButton.setToggleGroup(categoryGroup);
+            kategoriFlowPane.getChildren().add(noGroupButton);
+
+            for (ProductCategory category : categories) {
+                RadioButton categoryButton = new  RadioButton(category.toString());
+                categoryButton.setToggleGroup(categoryGroup);
+                kategoriFlowPane.getChildren().add(categoryButton);
+
+            }
+        }
+        catch (Exception e) {
+
+        }
+    }
+
+
+    private void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
             varukorgFlowPane.getChildren().clear();
@@ -231,18 +274,35 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
+    public void updateVarukorgItemList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+
+        try {
+            varukorgItemFlowPane.getChildren().clear();
+
+            for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
+
+                varukorgItemFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+            }
+        }
+        catch (Exception e) {
+
+        }
+    }
+
     @FXML
     private void handleSearchAction(ActionEvent event) {
 
         List<Product> matches = model.findProducts(searchField.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
+        categoryGroup.selectToggle(noGroupButton);
 
     }
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
+        updateVarukorgItemList(model.getShoppingCart().getItems());
 
     }
 }
