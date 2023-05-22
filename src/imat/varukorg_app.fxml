@@ -12,12 +12,12 @@
    <children>
       <VBox alignment="CENTER" layoutX="855.0" layoutY="522.0" prefHeight="144.0" prefWidth="131.0">
          <children>
-            <Label text="Label">
+            <Label fx:id="kostnadLabel" text="Kostnad">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Label text="Varor">
+            <Label fx:id="antalVarorLabel" text="Varor">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
@@ -27,7 +27,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Tömm varukorg">
+            <Button fx:id="tömmVarukorgButton" mnemonicParsing="false" text="Tömm varukorg" onAction="#handleTömmVarukorgAction">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>

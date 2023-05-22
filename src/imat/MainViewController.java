@@ -51,7 +51,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private Label Name;
     @FXML
-    private Label antalVaror;
+    public Label antalVarorLabel;
+    @FXML
+    public Label kostnadLabel;
 
     @FXML
     private Label efternamn;
@@ -130,6 +132,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button bekräfta_köp;
+    @FXML
+    private Button tömmVarukorgButton;
 
     @FXML
     private Button fortsätt_till_kassan;
@@ -198,6 +202,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         updateVarukorgList(model.getShoppingCart().getItems());
 
+
     }
 
     private void updateProductList(List<Product> products) {
@@ -225,10 +230,21 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
                 varukorgFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
             }
+            antalVarorLabel.setText("Totalt antal varor: " + (totalCartItems(shoppingCartItems)));
+            kostnadLabel.setText("Total kostnad: " + (model.getShoppingCart().getTotal()) + " kr");
         }
         catch (Exception e) {
 
         }
+    }
+
+    public double totalCartItems(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+        double total = 0.0;
+        for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
+            total += varukorgVara.getAmount();
+        }
+        return total;
+
     }
 
     @FXML
@@ -238,6 +254,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
 
+    }
+
+    @FXML
+    private void handleTömmVarukorgAction(ActionEvent event) {
+        model.getShoppingCart().clear();
     }
 
     @Override

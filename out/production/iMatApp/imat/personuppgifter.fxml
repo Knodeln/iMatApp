@@ -23,7 +23,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#gå_till_betalning" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button fx:id="betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#gå_till_betalnining" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
