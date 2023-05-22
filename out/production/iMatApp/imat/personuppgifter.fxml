@@ -13,17 +13,17 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button fx:id="personuppgifter_button" layoutX="244.0" layoutY="3.0" mnemonicParsing="false" onAction="#Personuppgifter_button_press" prefHeight="129.0" prefWidth="219.0" styleClass="button-1" stylesheets="@imat_app.css" text="Person uppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button layoutX="244.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" styleClass="button-1" stylesheets="@imat_app.css" text="Person uppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Leveransdetaljer" layoutX="499.0" layoutY="3.0" mnemonicParsing="false" onAction="#Leverans_button_press" prefHeight="129.0" prefWidth="219.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="279.0">
+                  <Button layoutX="499.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="279.0">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#gå_till_betalning" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -57,7 +57,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button layoutX="101.0" layoutY="384.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Tilbaka till startsida" AnchorPane.leftAnchor="101.0">
+                  <Button fx:id="tillbaka" layoutX="101.0" layoutY="398.0" mnemonicParsing="false" onAction="#tillbaka_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka " AnchorPane.leftAnchor="101.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -82,19 +82,24 @@
                   <Label layoutX="551.0" layoutY="198.0" prefHeight="39.0" prefWidth="228.0" text="Label" />
                   <Label layoutX="615.0" layoutY="122.0" prefHeight="39.0" prefWidth="164.0" text="Label" />
                   <Label layoutX="155.0" layoutY="269.0" prefHeight="39.0" prefWidth="219.0" text="Label" />
-                  <Button layoutX="574.0" layoutY="384.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Spara uppgifter">
+                  <Button fx:id="gå_till_nästa_steg" layoutX="574.0" layoutY="398.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Gå till nästa steg">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <AnchorPane layoutX="183.0" layoutY="25.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="25.0">
+                  <Button layoutX="511.0" layoutY="326.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="450.0" styleClass="button-2" stylesheets="@imat_app.css" text="Spara uppgifter">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <AnchorPane layoutX="159.0" layoutY="44.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.9999999999999" AnchorPane.topAnchor="25.0">
                      <children>
-                        <Button fx:id="stäng_knappen" layoutX="221.0" layoutY="263.0" mnemonicParsing="false" onAction="#Spara_uppgifter" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
+                        <Button layoutX="221.0" layoutY="263.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
                         </Button>
-                        <Label contentDisplay="CENTER" layoutX="91.0" layoutY="134.0" prefHeight="73.0" prefWidth="514.0" styleClass="Text-stor" stylesheets="@imat_app.css" text="Dina uppgifter är sparade" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="47.0">
+                        <Label contentDisplay="CENTER" layoutX="89.0" layoutY="134.0" prefHeight="73.0" prefWidth="510.0" styleClass="Text-stor" stylesheets="@imat_app.css" text="Dina uppgifter är sparade" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="134.0">
                            <font>
                               <Font name="System Bold" size="40.0" />
                            </font>

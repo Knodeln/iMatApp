@@ -37,16 +37,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button betala_button;
-    @FXML
-    private Button personuppgifter_button;
+
 
     @FXML
     private Button Imat_button;
-    @FXML
-    private Button Leveransdetaljer;
 
-    @FXML
-    private Button betalning;
 
     @FXML
     private Label Name;
@@ -76,9 +71,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button tillbaka_till_startsida;
-
+    @FXML
+    private Button tillbaka;
     @FXML
     private Button spara_uppgifter;
+
+    @FXML
+    private Button fortsätt_till_nästa;
 
     @FXML
     private Button stäng_knappen;
@@ -108,6 +107,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Button Tillbaka;
 
     @FXML
+    private Button fortsätt_till_betalning;
+    @FXML
     private Label kortägare;
 
     @FXML
@@ -134,6 +135,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private Button fortsätt_till_kassan;
 
+    @FXML
+    private Button fortsätt_handla;
+
 
     private Model model = Model.getInstance();
     @FXML
@@ -145,6 +149,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private ListView shoppingCart;
 
+    @FXML
+    private Button back_to_peresonUppgifter;
+    @FXML
+    private Button back_to_leverans;
+
 
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -152,11 +161,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void tillbaka_varukorg_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
         Stage window = (Stage) tillbaka_varukorg_button.getScene().getWindow();
-        window.setScene(new Scene(root, 1000, 700));
-    }
-    public void gå_till_betalning() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
-        Stage window = (Stage) betala_button.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
     public void varukorg_button_press() throws Exception {
@@ -169,23 +173,42 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         Stage window = (Stage) fortsätt_till_kassan.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Leverans_button_press() throws Exception {
+    public void fortsätt_till_leverans_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
-        Stage window = (Stage) Leveransdetaljer.getScene().getWindow();
+        Stage window = (Stage) gå_till_nästa_steg.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Personuppgifter_button_press() throws Exception {
+    public void fortsätt_till_betalning_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
+        Stage window = (Stage) fortsätt_till_betalning.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void fortsätt_handla_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
+        Stage window = (Stage) fortsätt_handla.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void tillbaka_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("varukorg_app.fxml"));
+        Stage window = (Stage) tillbaka.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void tillbaka_prsonuppgifter_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("personuppgifter.fxml"));
-        Stage window = (Stage) personuppgifter_button.getScene().getWindow();
+        Stage window = (Stage) back_to_peresonUppgifter.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Spara_uppgifter() throws Exception {
+    public void tillbaka_leverans_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
-        Stage window = (Stage) stäng_knappen.getScene().getWindow();
+        Stage window = (Stage) back_to_leverans.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
 
-    
+
+
+
+
+
 
 
     public void initialize(URL url, ResourceBundle rb) {
