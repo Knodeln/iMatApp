@@ -67,8 +67,8 @@ public class VarukorgVara extends AnchorPane {
         double itemsBefore = shoppingItem.getAmount();
 
         if (itemsBefore > 1.0) {
-            cart.removeItem(shoppingItem);
-            cart.addProduct(shoppingItem.getProduct(), (itemsBefore - 1.0));
+            //cart.removeItem(shoppingItem);
+            cart.addProduct(shoppingItem.getProduct(), (- 1.0));
         }
         else {cart.removeItem(shoppingItem);}
         String cartText = "";
