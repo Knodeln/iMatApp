@@ -83,7 +83,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Button layoutX="590.0" layoutY="409.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
+                  <Button fx:id="bekräfta_köp" layoutX="590.0" layoutY="409.0" mnemonicParsing="false" onAction="#handleBekräftaKöpAction" prefHeight="70.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>

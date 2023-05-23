@@ -18,13 +18,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.*;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
 
 public class MainViewController implements Initializable, ShoppingCartListener {
 
@@ -32,6 +27,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private SplitPane lowerVerticalSplitPane;
     @FXML
     private FlowPane productsFlowPane;
+    @FXML
+    private FlowPane orderItemsFlowPane;
+    @FXML
+    private FlowPane ordersFlowPane;
     @FXML
     private FlowPane varukorgFlowPane;
 
@@ -141,6 +140,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button fortsätt_handla;
+    @FXML
+    private Button ordrarButton;
 
 
     private Model model = Model.getInstance();
@@ -157,6 +158,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Button back_to_peresonUppgifter;
     @FXML
     private Button back_to_leverans;
+    @FXML
+    private Button updateButton;
 
 
 
@@ -207,7 +210,12 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         Stage window = (Stage) back_to_leverans.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-
+    public void handleOrdrarAction() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("ordrarPane.fxml"));
+        Stage window = (Stage) ordrarButton.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+        updateOrderList();
+    }
 
 
 
@@ -224,6 +232,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateProductList(model.getProducts());
 
         updateVarukorgList(model.getShoppingCart().getItems());
+
+        updateOrderList();
 
 
     }
@@ -243,21 +253,38 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
-
     public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
+
             varukorgFlowPane.getChildren().clear();
 
             for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
 
                 varukorgFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+
             }
             antalVarorLabel.setText("Totalt antal varor: " + (totalCartItems(shoppingCartItems)));
             kostnadLabel.setText("Total kostnad: " + (model.getShoppingCart().getTotal()) + " kr");
         }
         catch (Exception e) {
 
+        }
+    }
+
+    public void updateOrderList() {
+        List<Order> orders = iMatDataHandler.getOrders();
+        try {
+            System.out.println(1);
+            ordersFlowPane.getChildren().clear();
+            System.out.println(2);
+            for (Order order : orders) {
+                System.out.println(3);
+                ordersFlowPane.getChildren().add(new OrderPane(order));
+                System.out.println(4);
+            }
+        }
+        catch (Exception e) {
         }
     }
 
@@ -283,6 +310,16 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private void handleTömmVarukorgAction(ActionEvent event) {
         model.getShoppingCart().clear();
     }
+    @FXML
+    private void handleBekräftaKöpAction() {
+        model.placeOrder();
+
+    }
+    @FXML
+    private void testAction() {
+        updateOrderList();
+    }
+
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
