@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -13,19 +15,19 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button layoutX="244.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" styleClass="button-1" stylesheets="@imat_app.css" text="Person uppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="129.0" prefWidth="202.0" styleClass="button-1" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutX="499.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="279.0">
+                  <Button layoutX="505.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="129.0" prefWidth="202.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button fx:id="fortsätt_till_betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="129.0" prefWidth="202.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
                   <Button layoutY="2.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -33,68 +35,70 @@
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="455.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="703.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Arrow.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="717.0" styleClass="background" stylesheets="@../../../../../Desktop/Design_projekt/iMatApp/src/imat/imat_app.css">
                <children>
-                  <TextArea layoutX="30.0" layoutY="35.0" prefHeight="49.0" prefWidth="450.0" text="Namn:">
+                  <TextArea layoutX="30.0" layoutY="35.0" prefHeight="49.0" prefWidth="450.0" promptText="Namn">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="30.0" layoutY="117.0" prefHeight="49.0" prefWidth="450.0" text="Adress:">
+                  <TextArea layoutX="30.0" layoutY="117.0" prefHeight="49.0" prefWidth="450.0" promptText="Adress:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="30.0" layoutY="193.0" prefHeight="49.0" prefWidth="450.0" text="Post adress:">
+                  <TextArea layoutX="30.0" layoutY="193.0" prefHeight="49.0" prefWidth="450.0" promptText="Postadress:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="30.0" layoutY="264.0" prefHeight="49.0" prefWidth="450.0" text="Telefon nummer:">
+                  <TextArea layoutX="30.0" layoutY="264.0" prefHeight="49.0" prefWidth="450.0" promptText="Telefonnummer:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="511.0" layoutY="264.0" prefHeight="49.0" prefWidth="450.0" text="Personnummer:">
+                  <TextArea layoutX="511.0" layoutY="264.0" prefHeight="49.0" prefWidth="450.0" promptText="Personnummer:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <Button fx:id="tillbaka" layoutX="101.0" layoutY="398.0" mnemonicParsing="false" onAction="#tillbaka_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka " AnchorPane.leftAnchor="101.0">
+                  <Button fx:id="tillbaka" layoutX="111.0" layoutY="410.0" mnemonicParsing="false" onAction="#tillbaka_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka " AnchorPane.leftAnchor="111.0" AnchorPane.topAnchor="410.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Label layoutX="101.0" layoutY="40.0" prefHeight="39.0" prefWidth="219.0" text="Label" />
-                  <Label layoutX="101.0" layoutY="122.0" prefHeight="39.0" prefWidth="187.0" text="Label" />
-                  <Label layoutX="120.0" layoutY="198.0" prefHeight="39.0" prefWidth="150.0" text="Label" />
-                  <Label layoutX="629.0" layoutY="269.0" prefHeight="39.0" prefWidth="295.0" text="Label" />
-                  <TextArea layoutX="511.0" layoutY="35.0" prefHeight="49.0" prefWidth="450.0" text="Efternamn:">
+                  <TextArea layoutX="511.0" layoutY="35.0" prefHeight="49.0" prefWidth="450.0" promptText="Efternamn:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="511.0" layoutY="117.0" prefHeight="49.0" prefWidth="450.0" text="Post nummer:">
+                  <TextArea layoutX="511.0" layoutY="117.0" prefHeight="49.0" prefWidth="450.0" promptText="Postnummer:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <TextArea layoutX="511.0" layoutY="193.0" prefHeight="49.0" prefWidth="450.0" text="Ort:">
+                  <TextArea layoutX="511.0" layoutY="193.0" prefHeight="49.0" prefWidth="450.0" promptText="Ort:">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                      </font></TextArea>
-                  <Label layoutX="600.0" layoutY="40.0" prefHeight="39.0" prefWidth="193.0" text="Label" />
-                  <Label layoutX="551.0" layoutY="198.0" prefHeight="39.0" prefWidth="228.0" text="Label" />
-                  <Label layoutX="615.0" layoutY="122.0" prefHeight="39.0" prefWidth="164.0" text="Label" />
-                  <Label layoutX="155.0" layoutY="269.0" prefHeight="39.0" prefWidth="219.0" text="Label" />
-                  <Button fx:id="gå_till_nästa_steg" layoutX="574.0" layoutY="398.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Gå till nästa steg">
+                  <Button fx:id="gå_till_nästa_steg" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Gå till nästa steg" AnchorPane.topAnchor="410.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Button layoutX="511.0" layoutY="326.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="450.0" styleClass="button-2" stylesheets="@imat_app.css" text="Spara uppgifter">
+                  <Button fx:id="spara_uppgifter" layoutX="511.0" layoutY="326.0" mnemonicParsing="false" onAction="#toggleSparaUppgifter" prefHeight="52.0" prefWidth="450.0" styleClass="button-2" stylesheets="@imat_app.css" text="Spara uppgifter">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <AnchorPane layoutX="159.0" layoutY="44.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.9999999999999" AnchorPane.topAnchor="25.0">
+                  <AnchorPane fx:id="SparaUppgifter" layoutX="159.0" layoutY="52.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.9999999999999" AnchorPane.topAnchor="52.0">
                      <children>
-                        <Button layoutX="221.0" layoutY="263.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
+                        <Button fx:id="stäng_knappen" layoutX="221.0" layoutY="263.0" mnemonicParsing="false" onAction="#toggleSparaUppgifter" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

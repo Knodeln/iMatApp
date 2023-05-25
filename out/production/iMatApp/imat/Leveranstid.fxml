@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
@@ -15,19 +18,19 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button layoutX="244.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" stylesheets="@imat_app.css" text="Person uppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="129.0" prefWidth="202.0" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutX="499.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" styleClass="button-1" stylesheets="@imat_app.css" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="279.0">
+                  <Button fx:id="gå_till_nästa_steg" layoutX="505.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="129.0" prefWidth="202.0" styleClass="button-1" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="219.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="129.0" prefWidth="202.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
                   <Button layoutY="2.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -35,26 +38,24 @@
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="703.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="455.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Arrow.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="997.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <TextArea layoutX="34.0" layoutY="33.0" prefHeight="94.0" prefWidth="900.0" text="Leveranstid:" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </TextArea>
-                  <DatePicker layoutX="456.0" layoutY="61.0" prefHeight="38.0" prefWidth="196.0" />
-                  <TextArea layoutX="47.0" layoutY="148.0" prefHeight="94.0" prefWidth="897.0" text="Levernassätt:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </TextArea>
-                  <TextArea layoutX="46.0" layoutY="270.0" prefHeight="94.0" prefWidth="897.0" text="Leveransadress:">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </TextArea>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="47.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
+                  <DatePicker layoutX="456.0" layoutY="42.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj ett datum" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="46.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="47.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
                   <RadioButton layoutX="456.0" layoutY="167.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text="Lämnas vid dörr">
                      <font>
                         <Font size="20.0" />
@@ -65,96 +66,33 @@
                         <Font size="20.0" />
                      </font>
                   </RadioButton>
-                  <Button fx:id="back_to_peresonUppgifter" layoutX="111.0" layoutY="398.0" mnemonicParsing="false" onAction="#tillbaka_prsonuppgifter_button_press" prefHeight="70.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka" AnchorPane.leftAnchor="111.0">
+                  <Button fx:id="back_to_peresonUppgifter" layoutX="111.0" layoutY="410.0" mnemonicParsing="false" onAction="#tillbaka_prsonuppgifter_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka" AnchorPane.leftAnchor="111.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Label layoutX="456.0" layoutY="293.0" prefHeight="47.0" prefWidth="414.0" text="Skriv in din andress...">
+                  <Button fx:id="fortsätt_till_betalning" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Gå till nästa steg">
                      <font>
-                        <Font size="25.0" />
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <ComboBox editable="true" layoutX="456.0" layoutY="87.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj en tid" />
+                  <Label layoutX="65.0" layoutY="35.0" prefHeight="30.0" prefWidth="239.0" text="Leveranstid:">
+                     <font>
+                        <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="fortsätt_till_betalning" layoutX="580.0" layoutY="399.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="70.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Gå till nästa steg">
+                  <Label layoutX="65.0" layoutY="167.0" prefHeight="30.0" prefWidth="239.0" text="Leveranssätt:">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font size="18.0" />
                      </font>
-                  </Button>
-                  <AnchorPane layoutX="35.0" layoutY="138.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="25.0">
-                     <children>
-                        <Button layoutX="17.0" layoutY="55.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="08:00" AnchorPane.topAnchor="55.0">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="17.0" layoutY="114.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="09:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="17.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="10:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="182.0" layoutY="55.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="11:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="182.0" layoutY="114.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="12:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="182.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="13:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="347.0" layoutY="55.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="14:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="347.0" layoutY="114.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="15:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="347.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="16:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="510.0" layoutY="55.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="17:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="510.0" layoutY="114.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="18:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="510.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="153.0" text="19:00">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="291.0" layoutY="14.0" prefHeight="27.0" prefWidth="95.0" text="Label" textAlignment="CENTER" />
-                        <Button layoutX="401.0" layoutY="271.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="232.0" styleClass="button-2" stylesheets="@imat_app.css" text="bekräfta tiden" AnchorPane.rightAnchor="45.33333333333337">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="55.0" layoutY="271.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="232.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tillbaka" AnchorPane.leftAnchor="55.0">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </AnchorPane>
+                  </Label>
+                  <Label layoutX="65.0" layoutY="293.0" prefHeight="30.0" prefWidth="239.0" text="Leveransadress:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox editable="true" layoutX="445.0" layoutY="295.0" prefHeight="30.0" prefWidth="202.0" promptText="Välj en adress" />
                </children>
             </AnchorPane>
          </items>
