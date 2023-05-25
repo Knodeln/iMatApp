@@ -1,14 +1,11 @@
 
 package imat;
 
-import java.beans.PropertyDescriptor;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,25 +28,26 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private FlowPane productsFlowPane;
     @FXML
+    private FlowPane orderItemsFlowPane;
+    @FXML
+    private FlowPane ordersFlowPane;
+    @FXML
     private FlowPane varukorgFlowPane;
 
     @FXML
     private Button betala_button;
-    @FXML
-    private Button personuppgifter_button;
+
 
     @FXML
     private Button Imat_button;
-    @FXML
-    private Button Leveransdetaljer;
 
-    @FXML
-    private Button betalning;
 
     @FXML
     private Label Name;
     @FXML
-    private Label antalVaror;
+    public Label antalVarorLabel;
+    @FXML
+    public Label kostnadLabel;
 
     @FXML
     private Label efternamn;
@@ -74,9 +72,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button tillbaka_till_startsida;
-
+    @FXML
+    private Button tillbaka;
     @FXML
     private Button spara_uppgifter;
+
+    @FXML
+    private Button fortsätt_till_nästa;
 
     @FXML
     private Button stäng_knappen;
@@ -106,6 +108,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Button Tillbaka;
 
     @FXML
+    private Button fortsätt_till_betalning;
+    @FXML
     private Label kortägare;
 
     @FXML
@@ -128,9 +132,16 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private Button bekräfta_köp;
+    @FXML
+    private Button tömmVarukorgButton;
 
     @FXML
     private Button fortsätt_till_kassan;
+
+    @FXML
+    private Button fortsätt_handla;
+    @FXML
+    private Button ordrarButton;
 
 
     private Model model = Model.getInstance();
@@ -142,13 +153,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private TextField searchField;
     @FXML
     private ListView shoppingCart;
+
     @FXML
-    private FlowPane varukorgItemFlowPane;
+    private Button back_to_peresonUppgifter;
     @FXML
-    private FlowPane kategoriFlowPane;
+    private Button back_to_leverans;
     @FXML
-    private final ToggleGroup categoryGroup = new ToggleGroup();
-    private RadioButton noGroupButton = new RadioButton("NO CATEGORY");
+    private Button updateButton;
 
 
 
@@ -157,11 +168,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void tillbaka_varukorg_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
         Stage window = (Stage) tillbaka_varukorg_button.getScene().getWindow();
-        window.setScene(new Scene(root, 1000, 700));
-    }
-    public void gå_till_betalning() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
-        Stage window = (Stage) betala_button.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
     public void varukorg_button_press() throws Exception {
@@ -174,23 +180,47 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         Stage window = (Stage) fortsätt_till_kassan.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Leverans_button_press() throws Exception {
+    public void fortsätt_till_leverans_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
-        Stage window = (Stage) Leveransdetaljer.getScene().getWindow();
+        Stage window = (Stage) gå_till_nästa_steg.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Personuppgifter_button_press() throws Exception {
+    public void fortsätt_till_betalning_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
+        Stage window = (Stage) fortsätt_till_betalning.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void fortsätt_handla_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("imat_app.fxml"));
+        Stage window = (Stage) fortsätt_handla.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void tillbaka_button_press() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("varukorg_app.fxml"));
+        Stage window = (Stage) tillbaka.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+    }
+    public void tillbaka_prsonuppgifter_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("personuppgifter.fxml"));
-        Stage window = (Stage) personuppgifter_button.getScene().getWindow();
+        Stage window = (Stage) back_to_peresonUppgifter.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
     }
-    public void Spara_uppgifter() throws Exception {
+    public void tillbaka_leverans_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
-        Stage window = (Stage) stäng_knappen.getScene().getWindow();
+        Stage window = (Stage) back_to_leverans.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
+    }
+    public void handleOrdrarAction() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("ordrarPane.fxml"));
+        Stage window = (Stage) ordrarButton.getScene().getWindow();
+        window.setScene(new Scene(root, 1000, 700));
+        updateOrderList();
     }
 
-    
+
+
+
+
 
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -200,26 +230,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
         updateProductList(model.getProducts());
+
         updateVarukorgList(model.getShoppingCart().getItems());
-        updateKategoriList(ProductCategory.values());
 
-        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
-        {
-            public void changed(ObservableValue<? extends Toggle> ob,
-                                Toggle o, Toggle n)
-            {
+        updateOrderList();
 
-                RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
-
-                if (rb != null) {
-                    if(rb.getText() != "NO CATEGORY"){
-                        updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
-                    }else{
-                        updateProductList(model.getProducts());
-                    }
-                }
-            };
-        });
 
     }
 
@@ -238,54 +253,48 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
-
-    private void updateKategoriList(ProductCategory[] pd) {
-
-        try {
-            kategoriFlowPane.getChildren().clear();
-            noGroupButton.setToggleGroup(categoryGroup);
-            kategoriFlowPane.getChildren().add(noGroupButton);
-
-            for (ProductCategory category : pd) {
-
-                RadioButton rb = new RadioButton(category.toString());
-                rb.setToggleGroup(categoryGroup);
-                kategoriFlowPane.getChildren().add(rb);
-            }
-        }
-        catch (Exception e) {
-
-        }
-    }
-
     public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
+
             varukorgFlowPane.getChildren().clear();
 
             for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
 
                 varukorgFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+
             }
+            antalVarorLabel.setText("Totalt antal varor: " + (totalCartItems(shoppingCartItems)));
+            kostnadLabel.setText("Total kostnad: " + (model.getShoppingCart().getTotal()) + " kr");
         }
         catch (Exception e) {
 
         }
     }
 
-    public void updateVarukorgItemList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
-
+    public void updateOrderList() {
+        List<Order> orders = iMatDataHandler.getOrders();
         try {
-            varukorgItemFlowPane.getChildren().clear();
-
-            for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
-
-                varukorgItemFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+            System.out.println(1);
+            ordersFlowPane.getChildren().clear();
+            System.out.println(2);
+            for (Order order : orders) {
+                System.out.println(3);
+                ordersFlowPane.getChildren().add(new OrderPane(order));
+                System.out.println(4);
             }
         }
         catch (Exception e) {
-
         }
+    }
+
+    public double totalCartItems(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+        double total = 0.0;
+        for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
+            total += varukorgVara.getAmount();
+        }
+        return total;
+
     }
 
     @FXML
@@ -294,14 +303,27 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         List<Product> matches = model.findProducts(searchField.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
-        categoryGroup.selectToggle(noGroupButton);
 
     }
+
+    @FXML
+    private void handleTömmVarukorgAction(ActionEvent event) {
+        model.getShoppingCart().clear();
+    }
+    @FXML
+    private void handleBekräftaKöpAction() {
+        model.placeOrder();
+
+    }
+    @FXML
+    private void testAction() {
+        updateOrderList();
+    }
+
 
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
-        updateVarukorgItemList(model.getShoppingCart().getItems());
 
     }
 }
