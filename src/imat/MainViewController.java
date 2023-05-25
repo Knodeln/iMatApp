@@ -1,6 +1,7 @@
 
 package imat;
 
+import java.beans.PropertyDescriptor;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -150,6 +151,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private RadioButton noGroupButton = new RadioButton("NO CATEGORY");
 
 
+
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
     public void tillbaka_varukorg_button_press() throws Exception {
@@ -198,12 +200,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
         updateProductList(model.getProducts());
-
         updateVarukorgList(model.getShoppingCart().getItems());
-
-        ProductCategory[] productList = ProductCategory.values();
-
-        updateKategoriFlowPane(productList);
+        updateKategoriList(ProductCategory.values());
 
         categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
         {
@@ -214,10 +212,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
                 RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
 
                 if (rb != null) {
-                    updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
-
+                    if(rb.getText() != "NO CATEGORY"){
+                        updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
+                    }else{
+                        updateProductList(model.getProducts());
+                    }
                 }
-            }
+            };
         });
 
     }
@@ -238,19 +239,18 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
-    private void updateKategoriFlowPane(ProductCategory[] categories) {
+    private void updateKategoriList(ProductCategory[] pd) {
 
         try {
-            System.out.println("updateProductList " );
             kategoriFlowPane.getChildren().clear();
             noGroupButton.setToggleGroup(categoryGroup);
             kategoriFlowPane.getChildren().add(noGroupButton);
 
-            for (ProductCategory category : categories) {
-                RadioButton categoryButton = new  RadioButton(category.toString());
-                categoryButton.setToggleGroup(categoryGroup);
-                kategoriFlowPane.getChildren().add(categoryButton);
+            for (ProductCategory category : pd) {
 
+                RadioButton rb = new RadioButton(category.toString());
+                rb.setToggleGroup(categoryGroup);
+                kategoriFlowPane.getChildren().add(rb);
             }
         }
         catch (Exception e) {
@@ -258,8 +258,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
-
-    private void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
+    public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
             varukorgFlowPane.getChildren().clear();

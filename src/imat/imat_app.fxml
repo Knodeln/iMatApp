@@ -18,15 +18,15 @@
             <Image url="@resources/logo.png" />
          </image>
       </ImageView>
-      <SplitPane dividerPositions="0.2" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="998.0">
                <children>
-                  <SplitPane dividerPositions="0.2, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.12, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="137.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                              <ImageView fitHeight="106.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <image>
                                     <Image url="@resources/logo.png" />
                                  </image>
@@ -35,7 +35,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" onAction="#handleSearchAction" prefHeight="111.0" prefWidth="565.0" promptText="Sök här..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                              <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" onAction="#handleSearchAction" prefHeight="111.0" prefWidth="565.0" promptText="Sök här..." style="-fx-font-size: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -49,15 +49,15 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="998.0">
                <children>
-                  <SplitPane fx:id="lowerVerticalSplitPane" dividerPositions="0.2, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane fx:id="lowerVerticalSplitPane" dividerPositions="0.12, 0.7" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <SplitPane dividerPositions="0.1" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="63.0" prefWidth="115.0">
                                        <children>
-                                          <Label layoutX="69.0" layoutY="31.0" text="Kategorier" />
+                                          <Label layoutX="29.0" layoutY="19.0" text="Kategorier" />
                                        </children>
                                     </AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -65,7 +65,7 @@
                                           <ListView prefHeight="460.0" prefWidth="196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                           <ScrollPane layoutX="-6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <content>
-                                                <FlowPane fx:id="kategoriFlowPane" prefHeight="200.0" prefWidth="200.0" />
+                                                <FlowPane fx:id="kategoriFlowPane" prefHeight="200.0" prefWidth="111.0" />
                                              </content>
                                           </ScrollPane>
                                        </children>
