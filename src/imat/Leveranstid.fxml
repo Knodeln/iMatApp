@@ -76,7 +76,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <ComboBox editable="true" layoutX="456.0" layoutY="87.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj en tid" />
+                  <ComboBox fx:id="leveranstid" editable="true" layoutX="456.0" layoutY="87.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj en tid" />
                   <Label layoutX="65.0" layoutY="35.0" prefHeight="30.0" prefWidth="239.0" text="Leveranstid:">
                      <font>
                         <Font size="18.0" />
