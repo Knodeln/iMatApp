@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.*;
@@ -163,12 +162,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private Button updateButton;
     @FXML
-    private FlowPane kategoriFlowPane;
+    private AnchorPane SparaUppgifter;
     @FXML
-    private final ToggleGroup categoryGroup = new ToggleGroup();
-    private RadioButton noGroupButton = new RadioButton("NO CATEGORY");
-    @FXML
-    private FlowPane varukorgItemFlowPane;
+            private AnchorPane tack_meddelande;
 
 
 
@@ -226,6 +222,18 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateOrderList();
     }
 
+    @FXML
+    public void toggleSparaUppgifter(){
+        SparaUppgifter.setVisible(!SparaUppgifter.isVisible());
+    }
+    @FXML
+    public void toggletackmedelande(){
+        tack_meddelande.setVisible(!tack_meddelande.isVisible());
+    }
+
+
+
+
 
 
 
@@ -241,27 +249,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateProductList(model.getProducts());
 
         updateVarukorgList(model.getShoppingCart().getItems());
+        updateVarukorgItemList(model.getShoppingCart().getItems());
 
         updateOrderList();
-        updateKategoriList(ProductCategory.values());
-
-        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
-        {
-            public void changed(ObservableValue<? extends Toggle> ob,
-                                Toggle o, Toggle n)
-            {
-
-                RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
-
-                if (rb != null) {
-                    if(rb.getText() != "NO CATEGORY"){
-                        updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
-                    }else{
-                        updateProductList(model.getProducts());
-                    }
-                }
-            };
-        });
 
 
     }
@@ -281,6 +271,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
+<<<<<<< HEAD
 
     private void updateKategoriList(ProductCategory[] pd) {
 
@@ -303,6 +294,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
+=======
+>>>>>>> 48d838ec0e44d611b52f65cfc3b124d37c97db69
     public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
@@ -322,6 +315,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
+<<<<<<< HEAD
     public void updateVarukorgItemList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
@@ -337,16 +331,18 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         }
     }
 
+=======
+>>>>>>> 48d838ec0e44d611b52f65cfc3b124d37c97db69
     public void updateOrderList() {
         List<Order> orders = iMatDataHandler.getOrders();
         try {
-            System.out.println(1);
+
             ordersFlowPane.getChildren().clear();
-            System.out.println(2);
+
             for (Order order : orders) {
-                System.out.println(3);
+
                 ordersFlowPane.getChildren().add(new OrderPane(order));
-                System.out.println(4);
+
             }
         }
         catch (Exception e) {
@@ -368,7 +364,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         List<Product> matches = model.findProducts(searchField.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
-        categoryGroup.selectToggle(noGroupButton);
 
     }
 
@@ -390,7 +385,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
-        updateVarukorgItemList(model.getShoppingCart().getItems());
 
     }
+
 }

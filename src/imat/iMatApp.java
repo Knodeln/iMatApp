@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.time.LocalDate;
+import javafx.scene.control.DatePicker;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,11 +33,21 @@ public class iMatApp extends Application {
 
     }
 
+
+
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Model.getInstance().shutDown();
+            }
+        }));
     }
     
 }

@@ -7,10 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" styleClass="background" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <VBox alignment="CENTER" layoutX="855.0" layoutY="522.0" prefHeight="144.0" prefWidth="131.0">
+      <VBox alignment="CENTER" layoutX="820.0" layoutY="472.0" prefHeight="144.0" prefWidth="131.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="30.0">
          <children>
             <Label fx:id="kostnadLabel" text="Kostnad">
                <VBox.margin>
@@ -22,19 +23,28 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="fortsätt_till_kassan" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" text="Fortsätt till kassan">
+            <Button fx:id="fortsätt_till_kassan" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="50.0" prefWidth="150.0" styleClass="button-2" stylesheets="@imat_app.css" text="Fortsätt till kassan">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
-            <Button fx:id="tömmVarukorgButton" mnemonicParsing="false" onAction="#handleTömmVarukorgAction" text="Tömm varukorg">
+            <Button fx:id="tömmVarukorgButton" maxHeight="50.0" maxWidth="150.0" minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#handleTömmVarukorgAction" prefHeight="50.0" prefWidth="150.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tömm varukorg">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
          </children>
       </VBox>
-      <Button fx:id="tillbaka_varukorg_button" layoutX="41.0" layoutY="632.0" mnemonicParsing="false" onAction="#tillbaka_varukorg_button_press" text="Tillbaka" />
+      <Button fx:id="tillbaka_varukorg_button" layoutX="14.0" layoutY="626.0" mnemonicParsing="false" onAction="#tillbaka_varukorg_button_press" prefHeight="50.0" prefWidth="150.0" styleClass="button-1" text="Tillbaka">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Button>
       <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="574.0" prefWidth="777.0">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="572.0" prefWidth="772.0">

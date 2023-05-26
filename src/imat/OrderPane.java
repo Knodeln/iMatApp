@@ -23,6 +23,8 @@ public class OrderPane extends AnchorPane {
     private Label prizeLabel;
     @FXML
     private ImageView imageView;
+    @FXML
+    private Label kostnadLabel;
 
     @FXML
     private FlowPane orderItemsFlowPane;
@@ -42,6 +44,7 @@ public class OrderPane extends AnchorPane {
         }
 
         this.order = order;
+        kostnadLabel.setText("Kostnad: " + kostnadCount());
         updateOrderItemsList();
 
 
@@ -53,18 +56,26 @@ public class OrderPane extends AnchorPane {
 
             for (ShoppingItem product : order.getItems()) {
 
-                orderItemsFlowPane.getChildren().add(new VarukorgVara(product));
+                orderItemsFlowPane.getChildren().add(new OrderItem(product));
             }
         }
         catch (Exception e) {
 
         }
     }
+
+    private double kostnadCount() {
+        double kostnad = 0;
+        for (ShoppingItem item : order.getItems()) {
+            kostnad += (item.getAmount()*item.getProduct().getPrice());
+        }
+        return kostnad;
+    }
     @FXML
     public void handleLäggTillAction(ActionEvent event) {
         for (ShoppingItem item : order.getItems()) {
             System.out.println("Add " + item.getProduct().getName());
-            model.addToShoppingCart(item.getProduct());
+            model.getShoppingCart().addProduct(item.getProduct(), item.getAmount());
 
         }
     }
