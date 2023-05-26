@@ -143,7 +143,8 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Button fortsätt_handla;
     @FXML
     private Button ordrarButton;
-
+    @FXML
+    private Button tillbaka_varukorg_button1;
 
     private Model model = Model.getInstance();
     @FXML

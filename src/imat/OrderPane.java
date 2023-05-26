@@ -69,6 +69,7 @@ public class OrderPane extends AnchorPane {
         for (ShoppingItem item : order.getItems()) {
             kostnad += (item.getAmount()*item.getProduct().getPrice());
         }
+        kostnad = Math.round(kostnad * 100.0) / 100.0;
         return kostnad;
     }
     @FXML
