@@ -162,7 +162,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private Button updateButton;
     @FXML
-            private AnchorPane SparaUppgifter;
+    private AnchorPane SparaUppgifter;
+    @FXML
+            private AnchorPane tack_meddelande;
 
 
 
@@ -224,7 +226,10 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void toggleSparaUppgifter(){
         SparaUppgifter.setVisible(!SparaUppgifter.isVisible());
     }
-
+    @FXML
+    public void toggletackmedelande(){
+        tack_meddelande.setVisible(!tack_meddelande.isVisible());
+    }
 
 
 

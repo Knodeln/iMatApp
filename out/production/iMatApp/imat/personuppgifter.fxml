@@ -30,7 +30,7 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutY="2.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
+                  <Button fx:id="tillbaka_varukorg_button" layoutY="2.0" mnemonicParsing="false" onAction="#tillbaka_varukorg_button_press" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>

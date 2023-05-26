@@ -32,7 +32,7 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutY="2.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
+                  <Button fx:id="tillbaka_varukorg_button" layoutY="2.0" mnemonicParsing="false" onAction="#tillbaka_varukorg_button_press" prefHeight="136.0" prefWidth="219.0" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
@@ -89,12 +89,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="back_to_leverans" layoutX="111.0" layoutY="410.0" mnemonicParsing="false" onAction="#tillbaka_leverans_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka ">
+                  <Button fx:id="back_to_leverans" layoutX="111.0" layoutY="410.0" mnemonicParsing="false" onAction="#tillbaka_leverans_button_press" prefHeight="52.0" prefWidth="287.0" styleClass="close-button" stylesheets="@imat_app.css" text="Tilbaka " AnchorPane.bottomAnchor="92.66666666666663" AnchorPane.topAnchor="410.0">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="bekräfta_köp" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleBekräftaKöpAction" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
+                  <Button fx:id="bekräfta_köp" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#toggletackmedelande" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -118,7 +118,7 @@
                         </TextArea>
                      </children>
                   </Pane>
-                  <AnchorPane minHeight="350.0" prefHeight="350.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="100.0">
+                  <AnchorPane fx:id="tack_meddelande" minHeight="350.0" prefHeight="350.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="100.0">
                      <children>
                         <Label layoutX="165.0" layoutY="74.0" prefHeight="103.0" prefWidth="339.0" text="Tack för ditt köp" textAlignment="CENTER" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="154.0">
                            <font>
