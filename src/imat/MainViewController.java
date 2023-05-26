@@ -241,6 +241,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateProductList(model.getProducts());
 
         updateVarukorgList(model.getShoppingCart().getItems());
+        updateVarukorgItemList(model.getShoppingCart().getItems());
 
         updateOrderList();
         updateKategoriList(ProductCategory.values());
@@ -338,13 +339,13 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void updateOrderList() {
         List<Order> orders = iMatDataHandler.getOrders();
         try {
-            System.out.println(1);
+
             ordersFlowPane.getChildren().clear();
-            System.out.println(2);
+
             for (Order order : orders) {
-                System.out.println(3);
+
                 ordersFlowPane.getChildren().add(new OrderPane(order));
-                System.out.println(4);
+
             }
         }
         catch (Exception e) {
