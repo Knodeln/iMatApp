@@ -11,6 +11,20 @@
 
 <AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" styleClass="background" stylesheets="@../../../../../Desktop/Design_projekt/iMatApp/src/imat/imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
+      <AnchorPane fx:id="SparaUppgifter" layoutY="216.0" prefHeight="339.0" prefWidth="681.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="216.0">
+         <children>
+            <Button fx:id="stäng_knappen" layoutX="221.0" layoutY="263.0" mnemonicParsing="false" onAction="#toggleSparaUppgifter" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Button>
+            <Label contentDisplay="CENTER" layoutX="89.0" layoutY="134.0" prefHeight="73.0" prefWidth="510.0" styleClass="Text-stor" stylesheets="@imat_app.css" text="Dina uppgifter är sparade" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="134.0">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <SplitPane dividerPositions="0.2" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
@@ -96,20 +110,6 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <AnchorPane fx:id="SparaUppgifter" layoutX="159.0" layoutY="52.0" prefHeight="531.0" prefWidth="658.0" styleClass="popupp" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="159.0" AnchorPane.rightAnchor="159.9999999999999" AnchorPane.topAnchor="52.0">
-                     <children>
-                        <Button fx:id="stäng_knappen" layoutX="221.0" layoutY="263.0" mnemonicParsing="false" onAction="#toggleSparaUppgifter" prefHeight="52.0" prefWidth="364.0" styleClass="close-button" stylesheets="@imat_app.css" text="Stäng" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="222.0">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
-                        </Button>
-                        <Label contentDisplay="CENTER" layoutX="89.0" layoutY="134.0" prefHeight="73.0" prefWidth="510.0" styleClass="Text-stor" stylesheets="@imat_app.css" text="Dina uppgifter är sparade" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="89.0" AnchorPane.rightAnchor="79.0" AnchorPane.topAnchor="134.0">
-                           <font>
-                              <Font name="System Bold" size="40.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
                </children>
             </AnchorPane>
         </items>
