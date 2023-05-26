@@ -27,3 +27,17 @@
 .button-2{
     -fx-background-color: #74EA72;
     }
+.radioButtons{
+    -fx-background-color: #09CDDA;
+    -fx-padding: 15px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+    -fx-font-size: 15px;
+    -fx-border-color: black;
+    -fx-max-width: 175px;
+    -fx-min-width: 175px;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+}

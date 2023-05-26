@@ -10,37 +10,44 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" styleClass="background" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@resources/logo.png" />
          </image>
       </ImageView>
-      <SplitPane dividerPositions="0.15" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.2" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="998.0">
                <children>
-                  <SplitPane dividerPositions="0.12, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.2, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="106.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <image>
-                                    <Image url="@resources/logo.png" />
-                                 </image>
-                              </ImageView>
+                              <Button layoutX="72.0" layoutY="42.0" mnemonicParsing="false" text="IMat" textFill="#09cdda" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="41.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" onAction="#handleSearchAction" prefHeight="111.0" prefWidth="565.0" promptText="Sök här..." style="-fx-font-size: 25px;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0" />
+                              <TextField fx:id="searchField" layoutX="14.0" layoutY="14.0" onAction="#handleSearchAction" prefHeight="111.0" prefWidth="565.0" promptText="Sök här..." AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></TextField>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="ordrarButton" layoutY="1.0" mnemonicParsing="false" onAction="#handleOrdrarAction" text="Ordrar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button fx:id="ordrarButton" layoutY="1.0" mnemonicParsing="false" onAction="#handleOrdrarAction" text="Ordrar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="System Bold" size="41.0" />
+                                 </font></Button>
                            </children>
                         </AnchorPane>
                     </items>
@@ -49,7 +56,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="998.0">
                <children>
-                  <SplitPane fx:id="lowerVerticalSplitPane" dividerPositions="0.12, 0.7" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane fx:id="lowerVerticalSplitPane" dividerPositions="0.2, 0.8" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
@@ -57,7 +64,10 @@
                                 <items>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="63.0" prefWidth="115.0">
                                        <children>
-                                          <Label layoutX="29.0" layoutY="19.0" text="Kategorier" />
+                                          <Label layoutX="51.0" layoutY="10.0" text="Kategorier">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font></Label>
                                        </children>
                                     </AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -65,7 +75,7 @@
                                           <ListView prefHeight="460.0" prefWidth="196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                           <ScrollPane layoutX="-6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <content>
-                                                <FlowPane fx:id="kategoriFlowPane" prefHeight="200.0" prefWidth="111.0" />
+                                                <FlowPane fx:id="kategoriFlowPane" maxWidth="175.0" minWidth="175.0" prefWidth="175.0" prefWrapLength="175.0" />
                                              </content>
                                           </ScrollPane>
                                        </children>
@@ -80,7 +90,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="587.0">
                                        <children>
-                                          <FlowPane fx:id="productsFlowPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <FlowPane fx:id="productsFlowPane" maxWidth="500.0" minWidth="500.0" prefHeight="200.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -95,13 +105,16 @@
                                        <children>
                                           <ScrollPane layoutX="-19.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <content>
-                                                <FlowPane fx:id="varukorgItemFlowPane" maxWidth="1.7976931348623157E308" />
+                                                <FlowPane fx:id="varukorgItemFlowPane" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
                                              </content>
                                           </ScrollPane>
                                        </children></AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
-                                          <Button fx:id="varukorg_button" layoutX="104.0" layoutY="18.0" mnemonicParsing="false" onAction="#varukorg_button_press" text="Varukorg och betalning" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="varukorg_button" layoutX="104.0" layoutY="18.0" mnemonicParsing="false" onAction="#varukorg_button_press" text="Köp" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="System Bold" size="41.0" />
+                                             </font></Button>
                                        </children>
                                     </AnchorPane>
                                 </items>

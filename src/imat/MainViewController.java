@@ -287,12 +287,14 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         try {
             kategoriFlowPane.getChildren().clear();
             noGroupButton.setToggleGroup(categoryGroup);
+            noGroupButton.getStyleClass().add("radioButtons");
             kategoriFlowPane.getChildren().add(noGroupButton);
 
             for (ProductCategory category : pd) {
 
                 RadioButton rb = new RadioButton(category.toString());
                 rb.setToggleGroup(categoryGroup);
+                rb.getStyleClass().add("radioButtons");
                 kategoriFlowPane.getChildren().add(rb);
             }
         }
@@ -325,9 +327,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         try {
             varukorgItemFlowPane.getChildren().clear();
 
-            for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara : shoppingCartItems) {
+            for (se.chalmers.cse.dat216.project.ShoppingItem varukorgVara2 : shoppingCartItems) {
 
-                varukorgItemFlowPane.getChildren().add(new VarukorgVara(varukorgVara));
+                varukorgItemFlowPane.getChildren().add(new VarukorgVara2(varukorgVara2));
             }
         }
         catch (Exception e) {
