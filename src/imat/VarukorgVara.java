@@ -46,6 +46,7 @@ public class VarukorgVara extends AnchorPane {
     }
     @FXML
     private void handleAddAction(ActionEvent event) {
+        System.out.println(1);
         System.out.println("Add " + shoppingItem.getProduct().getName());
         model.addToShoppingCart(shoppingItem.getProduct());
         String cartText = "";

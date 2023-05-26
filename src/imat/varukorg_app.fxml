@@ -18,7 +18,7 @@
         <items>
           <AnchorPane maxHeight="160.0" minHeight="140.0" minWidth="0.0" prefHeight="160.0" prefWidth="160.0" styleClass="background">
                <children>
-                  <Button fx:id="fortsätt_till_kassan1" layoutX="456.0" layoutY="11.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="130.0" prefWidth="150.0" text="Personuppgifter" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="392.0">
+                  <Button layoutX="456.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="392.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -43,7 +43,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="gå_till_nästa_steg" layoutX="649.0" layoutY="11.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="130.0" prefWidth="150.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="199.0">
+                  <Button layoutX="649.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="199.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -53,7 +53,7 @@
                         <Image url="@resources/Arrow.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="842.0" layoutY="11.0" maxWidth="180.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="130.0" prefWidth="150.0" text="Betalning" textAlignment="CENTER" wrapText="true">
+                  <Button layoutX="842.0" layoutY="11.0" maxWidth="180.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" text="Betalning" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

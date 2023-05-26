@@ -24,6 +24,9 @@
 .button-1{
     -fx-background-color: #5CBAE2;
     }
+.grey-button{
+    -fx-background-color: #808080;
+    }
 .button-2{
     -fx-background-color: #74EA72;
     }
