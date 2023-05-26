@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,8 +28,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
     @FXML
     private SplitPane lowerVerticalSplitPane;
-    @FXML
-    private FlowPane productsFlowPane;
     @FXML
     private FlowPane orderItemsFlowPane;
     @FXML
@@ -164,9 +164,16 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private AnchorPane SparaUppgifter;
     @FXML
-            private AnchorPane tack_meddelande;
-
-
+    private AnchorPane tack_meddelande;
+    @FXML
+    private FlowPane kategoriFlowPane;
+    @FXML
+    private final ToggleGroup categoryGroup = new ToggleGroup();
+    private RadioButton noGroupButton = new RadioButton("NO CATEGORY");
+    @FXML
+    private FlowPane varukorgItemFlowPane;
+    @FXML
+    private FlowPane productFlowPane;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -231,15 +238,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         tack_meddelande.setVisible(!tack_meddelande.isVisible());
     }
 
-
-
-
-
-
-
-
-
-
     public void initialize(URL url, ResourceBundle rb) {
 
         model.getShoppingCart().addShoppingCartListener(this);
@@ -247,12 +245,29 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
         updateProductList(model.getProducts());
-
         updateVarukorgList(model.getShoppingCart().getItems());
         updateVarukorgItemList(model.getShoppingCart().getItems());
-
+        updateKategoriList(ProductCategory.values());
         updateOrderList();
 
+
+        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
+        {
+            public void changed(ObservableValue<? extends Toggle> ob,
+                                Toggle o, Toggle n)
+            {
+
+                RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
+
+                if (rb != null) {
+                    if(rb.getText() != "NO CATEGORY"){
+                        updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
+                    }else{
+                        updateProductList(model.getProducts());
+                    }
+                }
+            };
+        });
 
     }
 
@@ -260,18 +275,17 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         try {
             System.out.println("updateProductList " + products.size());
-            productsFlowPane.getChildren().clear();
+            productFlowPane.getChildren().clear();
 
             for (Product product : products) {
 
-                productsFlowPane.getChildren().add(new Vara(product));
+                productFlowPane.getChildren().add(new Vara(product));
             }
         }
         catch (Exception e) {
 
         }
     }
-<<<<<<< HEAD
 
     private void updateKategoriList(ProductCategory[] pd) {
 
@@ -293,9 +307,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
-
-=======
->>>>>>> 48d838ec0e44d611b52f65cfc3b124d37c97db69
     public void updateVarukorgList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
@@ -314,8 +325,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
-
-<<<<<<< HEAD
     public void updateVarukorgItemList(List<se.chalmers.cse.dat216.project.ShoppingItem> shoppingCartItems) {
 
         try {
@@ -330,9 +339,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
         }
     }
-
-=======
->>>>>>> 48d838ec0e44d611b52f65cfc3b124d37c97db69
     public void updateOrderList() {
         List<Order> orders = iMatDataHandler.getOrders();
         try {
@@ -385,6 +391,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @Override
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
+        updateVarukorgItemList(model.getShoppingCart().getItems());
 
     }
 
