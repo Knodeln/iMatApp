@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -247,6 +249,25 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateVarukorgItemList(model.getShoppingCart().getItems());
         updateKategoriList(ProductCategory.values());
         updateOrderList();
+
+
+        categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
+        {
+            public void changed(ObservableValue<? extends Toggle> ob,
+                                Toggle o, Toggle n)
+            {
+
+                RadioButton rb = (RadioButton)categoryGroup.getSelectedToggle();
+
+                if (rb != null) {
+                    if(rb.getText() != "NO CATEGORY"){
+                        updateProductList(model.getProducts(ProductCategory.valueOf(rb.getText())));
+                    }else{
+                        updateProductList(model.getProducts());
+                    }
+                }
+            };
+        });
 
     }
 
