@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -64,17 +65,17 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="2.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="129.0" prefWidth="202.0" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="2.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="grey-button" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="gå_till_nästa_steg" layoutX="505.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="129.0" prefWidth="202.0" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
+                  <Button fx:id="gå_till_nästa_steg" layoutX="505.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="grey-button" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="fortsätt_till_betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="129.0" prefWidth="202.0" styleClass="button-1" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button fx:id="fortsätt_till_betalning" layoutX="746.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="seq-button" text="Betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -103,33 +104,90 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="bekräfta_köp" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#toggletackmedelande" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
+                  <Button fx:id="bekräfta_köp" layoutX="575.0" layoutY="410.0" mnemonicParsing="false" onAction="#handleBekräftaKöpAction" prefHeight="52.0" prefWidth="287.0" styleClass="button-2" stylesheets="@imat_app.css" text="Bekräfta köp">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Pane layoutX="501.0" layoutY="18.0" prefHeight="97.0" prefWidth="463.0" styleClass="Massage-color" stylesheets="@imat_app.css">
+                  <Pane layoutX="521.0" layoutY="18.0" prefHeight="366.0" prefWidth="463.0" styleClass="Massage-color" stylesheets="@imat_app.css">
                      <children>
-                        <Label layoutX="14.0" layoutY="49.0" prefHeight="47.0" prefWidth="189.0" text="Label">
+                        <Label fx:id="betalningKostnad" layoutX="260.0" layoutY="23.0" prefHeight="47.0" prefWidth="189.0" text="200 KR">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" prefHeight="47.0" prefWidth="189.0" text="Totala summan:">
+                        <Label layoutX="14.0" layoutY="23.0" prefHeight="47.0" prefWidth="189.0" text="Totala summan:">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="90.0" prefHeight="47.0" prefWidth="189.0" text="Antal produkter:">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="betalningVaror" layoutX="260.0" layoutY="90.0" prefHeight="47.0" prefWidth="189.0" text="20 ST">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="183.0" prefHeight="177.0" prefWidth="433.0" text="Genom att trycka bekträfta köp godkänner du iMat's användarvillkor." wrapText="true">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="14.0" layoutY="18.0" prefHeight="97.0" prefWidth="463.0" styleClass="Massage-color" stylesheets="@imat_app.css">
+                  <Pane layoutX="14.0" layoutY="18.0" prefHeight="366.0" prefWidth="463.0" styleClass="Massage-color" stylesheets="@imat_app.css">
                      <children>
-                        <Label layoutX="8.0" layoutY="8.0" prefHeight="43.0" prefWidth="202.0" text="Välj betalningssätt:">
+                        <Label layoutX="8.0" layoutY="14.0" prefHeight="43.0" prefWidth="202.0" text="Korttyp:">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ComboBox layoutX="232.0" layoutY="8.0" prefHeight="43.0" prefWidth="202.0" promptText="Betalningssätt" />
+                        <ComboBox fx:id="betalningComboBox" layoutX="232.0" layoutY="14.0" prefHeight="43.0" prefWidth="202.0" promptText="Korttyp:" />
+                        <Label layoutX="8.0" layoutY="82.0" prefHeight="43.0" prefWidth="202.0" text="Kortnummer:">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="153.0" prefHeight="70.0" prefWidth="202.0" text="Kortinnehavarens namn:" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="8.0" layoutY="235.0" prefHeight="43.0" prefWidth="202.0" text="Giltighetsdatum:">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="301.0" prefHeight="43.0" prefWidth="202.0" text="CVC:">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="numberTextField" layoutX="232.0" layoutY="82.0" prefHeight="43.0" prefWidth="202.0" promptText="xxxx xxxx xxxx xxxx">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="nameTextField" layoutX="232.0" layoutY="162.0" prefHeight="43.0" prefWidth="202.0" promptText="Namn Efternamn">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="monthCombo" layoutX="232.0" layoutY="235.0" prefHeight="43.0" prefWidth="75.0" promptText="MM" />
+                        <ComboBox fx:id="yearCombo" layoutX="359.0" layoutY="235.0" prefHeight="43.0" prefWidth="75.0" promptText="YY" />
+                        <Label layoutX="312.0" layoutY="235.0" prefHeight="43.0" prefWidth="43.0" text="  /">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="cvcField" layoutX="232.0" layoutY="301.0" prefHeight="43.0" prefWidth="202.0" promptText="XXX">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </Pane>
                </children>

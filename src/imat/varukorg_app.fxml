@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,50 +12,20 @@
 
 <AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" styleClass="background" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <SplitPane dividerPositions="0.20916905444126074" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.2092" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane maxHeight="160.0" minHeight="140.0" minWidth="0.0" prefHeight="160.0" prefWidth="160.0" styleClass="background">
                <children>
-                  <Button layoutX="456.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="392.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="tillbaka_varukorg_button1" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#tillbaka_varukorg_button_press" prefHeight="136.0" prefWidth="219.0" stylesheets="@imat_app.css" text="IMat" textAlignment="CENTER" textFill="#14b2e2" textOverrun="CENTER_WORD_ELLIPSIS">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="606.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/Arrow.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="413.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/Arrow.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="263.0" layoutY="11.0" maxHeight="130.0" minHeight="130.0" minWidth="150.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="button-1" text="Kontrollera Varukorg" textAlignment="CENTER" wrapText="true">
+                  <Label layoutX="321.0" layoutY="46.0" prefHeight="17.0" prefWidth="357.0" text="Varukorgen">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
-                  </Button>
-                  <Button layoutX="649.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="199.0">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="799.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/Arrow.png" />
-                     </image>
-                  </ImageView>
-                  <Button layoutX="842.0" layoutY="11.0" maxWidth="180.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="130.0" prefWidth="150.0" styleClass="grey-button" text="Betalning" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
+                  </Label>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
@@ -66,7 +34,7 @@
                      <children>
                         <ScrollPane layoutX="4.0" layoutY="-7.0" prefHeight="575.0" prefWidth="775.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <FlowPane fx:id="varukorgFlowPane" prefWidth="200.0" vgap="10.0" />
+                              <FlowPane fx:id="varukorgFlowPane" minHeight="0.0" minWidth="0.0" prefHeight="176.0" prefWidth="783.0" vgap="10.0" />
                            </content>
                         </ScrollPane>
                      </children>

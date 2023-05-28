@@ -24,6 +24,18 @@
 .button-1{
     -fx-background-color: #5CBAE2;
     }
+.seq-button{
+    -fx-background-color: #5CBAE2;
+    }
+.button-1:hover {
+    -fx-background-color: #808080;
+}
+.button-2:hover {
+    -fx-background-color: #808080;
+}
+.close-button:hover {
+    -fx-background-color: #808080;
+}
 .grey-button{
     -fx-background-color: #808080;
     }

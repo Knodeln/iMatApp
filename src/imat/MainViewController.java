@@ -2,6 +2,9 @@
 package imat;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.chrono.Chronology;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -44,7 +47,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
 
     @FXML
-    private Label Name;
+    private TextField förnamn;
     @FXML
     public Label antalVarorLabel;
     @FXML
@@ -85,7 +88,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private Button stäng_knappen;
 
     @FXML
-    private DatePicker Leverans_datum;
+    private DatePicker leveransDatumDatePicker;
 
     @FXML
     private RadioButton Lämnas_vid_dörr;
@@ -175,6 +178,41 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     private FlowPane varukorgItemFlowPane;
     @FXML
     private FlowPane productFlowPane;
+    @FXML
+    private TextField efternamnTextField;
+    @FXML
+    private TextField adressTextField;
+    @FXML
+    private TextField postnummerTextField;
+    @FXML
+    private TextField postAdressTextField;
+    @FXML
+    private TextField epostadressTextFeild;
+    @FXML
+    private TextField telefonnummerTextField;
+    @FXML
+    private TextField personnummerTextField;
+    @FXML
+    private ComboBox leveransTider;
+    private LocalDate leveransdatum;
+    @FXML
+    private ComboBox betalningComboBox;
+    @FXML
+    private ComboBox monthCombo;
+    @FXML
+    private ComboBox yearCombo;
+    @FXML
+    private TextField numberTextField;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField cvcField;
+    @FXML
+    private Label betalningKostnad;
+    @FXML
+    private Label betalningVaror;
+    @FXML
+    private Label antalOrdrarLabel;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -194,9 +232,11 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         window.setScene(new Scene(root, 1000, 700));
     }
     public void fortsätt_till_leverans_button_press() throws Exception {
+        updatePersonuppgifter();
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
         Stage window = (Stage) gå_till_nästa_steg.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
+
     }
     public void fortsätt_till_betalning_button_press() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Betalning.fxml"));
@@ -209,6 +249,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         window.setScene(new Scene(root, 1000, 700));
     }
     public void tillbaka_button_press() throws Exception {
+        updatePersonuppgifter();
         Parent root = FXMLLoader.load(getClass().getResource("varukorg_app.fxml"));
         Stage window = (Stage) tillbaka.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
@@ -219,6 +260,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         window.setScene(new Scene(root, 1000, 700));
     }
     public void tillbaka_leverans_button_press() throws Exception {
+        updateCreditCard();
         Parent root = FXMLLoader.load(getClass().getResource("Leveranstid.fxml"));
         Stage window = (Stage) back_to_leverans.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
@@ -228,15 +270,6 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         Stage window = (Stage) ordrarButton.getScene().getWindow();
         window.setScene(new Scene(root, 1000, 700));
         updateOrderList();
-    }
-
-    @FXML
-    public void toggleSparaUppgifter(){
-        SparaUppgifter.setVisible(!SparaUppgifter.isVisible());
-    }
-    @FXML
-    public void toggletackmedelande(){
-        tack_meddelande.setVisible(!tack_meddelande.isVisible());
     }
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -250,7 +283,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
         updateVarukorgItemList(model.getShoppingCart().getItems());
         updateKategoriList(ProductCategory.values());
         updateOrderList();
-
+        updatePersonuppgifterPanel();
+        updateLeveransPanel();
+        updateBetalningPanel();
 
         categoryGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>()
         {
@@ -335,6 +370,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
 
                 varukorgItemFlowPane.getChildren().add(new VarukorgVara2(varukorgVara2));
             }
+            String text = "Varukorg: " + iMatDataHandler.getShoppingCart().getTotal();
+            text += " kr";
+            varukorg_button.setText(text);
         }
         catch (Exception e) {
 
@@ -351,6 +389,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
                 ordersFlowPane.getChildren().add(new OrderPane(order));
 
             }
+            antalOrdrarLabel.setText("Antal ordrar: " + iMatDataHandler.getOrders().size());
         }
         catch (Exception e) {
         }
@@ -381,6 +420,9 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private void handleBekräftaKöpAction() {
         model.placeOrder();
+        updateCreditCard();
+        tack_meddelande.toFront();
+
 
     }
     @FXML
@@ -393,6 +435,99 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     public void shoppingCartChanged(CartEvent cartEvent) {
         updateVarukorgList(model.getShoppingCart().getItems());
         updateVarukorgItemList(model.getShoppingCart().getItems());
+
+    }
+    private void updatePersonuppgifter() {
+        Customer customer = iMatDataHandler.getCustomer();
+        customer.setFirstName(förnamn.getText());
+        customer.setLastName(efternamnTextField.getText());
+        customer.setAddress(adressTextField.getText());
+        customer.setPostCode(postnummerTextField.getText());
+        customer.setPostAddress(postAdressTextField.getText());
+        customer.setEmail(epostadressTextFeild.getText());
+        customer.setPhoneNumber(telefonnummerTextField.getText());
+        customer.setMobilePhoneNumber(personnummerTextField.getText());
+
+
+    }
+
+    private void updatePersonuppgifterPanel() {
+        try {
+            Customer customer = iMatDataHandler.getCustomer();
+            förnamn.setText(customer.getFirstName());
+            efternamnTextField.setText(customer.getLastName());
+            adressTextField.setText(customer.getAddress());
+            postnummerTextField.setText(customer.getPostCode());
+            postAdressTextField.setText(customer.getPostAddress());
+            epostadressTextFeild.setText(customer.getEmail());
+            telefonnummer.setText(customer.getPhoneNumber());
+            personnummer.setText(customer.getMobilePhoneNumber());
+
+        }
+        catch (Exception e){
+
+        }
+    }
+    @FXML
+    private void updateLeverans() {
+        leveransdatum = leveransDatumDatePicker.getValue();
+
+    }
+    private void updateLeveransPanel() {
+
+        try {
+            leveransDatumDatePicker.setValue(leveransdatum);
+            leveransTider.getItems().addAll(model.getleveransTider());
+
+        }
+        catch (Exception e) {
+
+        }
+
+    }
+    private void updateBetalningPanel() {
+
+        try {
+            betalningComboBox.getItems().addAll(model.getCardTypes());
+
+            monthCombo.getItems().addAll(model.getMonths());
+
+            yearCombo.getItems().addAll(model.getYears());
+            CreditCard card = model.getCreditCard();
+            numberTextField.setText(card.getCardNumber());
+            nameTextField.setText(card.getHoldersName());
+            betalningComboBox.getSelectionModel().select(card.getCardType());
+            monthCombo.getSelectionModel().select(""+card.getValidMonth());
+            yearCombo.getSelectionModel().select(""+card.getValidYear());
+
+            cvcField.setText(""+card.getVerificationCode());
+
+            betalningVaror.setText("" + (totalCartItems(model.getShoppingCart().getItems())));
+            betalningKostnad.setText((model.getShoppingCart().getTotal()) + " kr");
+
+        }
+        catch (Exception e) {
+
+        }
+
+    }
+    private void updateCreditCard() {
+
+        CreditCard card = model.getCreditCard();
+
+        card.setCardNumber(numberTextField.getText());
+        card.setHoldersName(nameTextField.getText());
+
+        String selectedValue = (String) betalningComboBox.getSelectionModel().getSelectedItem();
+        card.setCardType(selectedValue);
+
+        selectedValue = (String) monthCombo.getSelectionModel().getSelectedItem();
+        card.setValidMonth(Integer.parseInt(selectedValue));
+
+        selectedValue = (String) yearCombo.getSelectionModel().getSelectedItem();
+        card.setValidYear(Integer.parseInt(selectedValue));
+
+        card.setVerificationCode(Integer.parseInt(cvcField.getText()));
 
     }
 

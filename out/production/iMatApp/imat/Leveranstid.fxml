@@ -18,17 +18,17 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_kassan_button_press" prefHeight="129.0" prefWidth="202.0" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="grey-button" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button fx:id="gå_till_nästa_steg" layoutX="505.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_leverans_button_press" prefHeight="129.0" prefWidth="202.0" styleClass="button-1" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
+                  <Button fx:id="gå_till_nästa_steg" layoutX="505.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="seq-button" text="Leveransdetaljer" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="296.33333333333337">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Button>
-                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" onAction="#fortsätt_till_betalning_button_press" prefHeight="129.0" prefWidth="202.0" text="betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
+                  <Button layoutX="746.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="grey-button" text="Betalning" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="746.0" AnchorPane.rightAnchor="32.0">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -53,9 +53,8 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="518.0" prefWidth="997.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="47.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
-                  <DatePicker layoutX="456.0" layoutY="42.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj ett datum" />
+                  <DatePicker fx:id="leveransDatumDatePicker" layoutX="456.0" layoutY="42.0" onAction="#updateLeverans" prefHeight="30.0" prefWidth="196.0" promptText="Välj ett datum dd/mm/åå" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="46.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="108.0" layoutX="47.0" layoutY="277.0" stroke="BLACK" strokeType="INSIDE" width="897.0" />
                   <RadioButton layoutX="456.0" layoutY="167.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text="Lämnas vid dörr">
                      <font>
                         <Font size="20.0" />
@@ -76,7 +75,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="leveranstid" editable="true" layoutX="456.0" layoutY="87.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj en tid" />
+                  <ComboBox fx:id="leveransTider" editable="true" layoutX="456.0" layoutY="87.0" prefHeight="30.0" prefWidth="196.0" promptText="Välj en tid" />
                   <Label layoutX="65.0" layoutY="35.0" prefHeight="30.0" prefWidth="239.0" text="Leveranstid:">
                      <font>
                         <Font size="18.0" />
@@ -87,12 +86,6 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="65.0" layoutY="293.0" prefHeight="30.0" prefWidth="239.0" text="Leveransadress:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <ComboBox editable="true" layoutX="445.0" layoutY="295.0" prefHeight="30.0" prefWidth="202.0" promptText="Välj en adress" />
                </children>
             </AnchorPane>
          </items>
