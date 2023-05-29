@@ -214,6 +214,7 @@ public class MainViewController implements Initializable, ShoppingCartListener {
     @FXML
     private Label antalOrdrarLabel;
 
+
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
     public void tillbaka_varukorg_button_press() throws Exception {
