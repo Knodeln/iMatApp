@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root minWidth="0.0" prefHeight="241.0" prefWidth="170.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minWidth="0.0" prefHeight="203.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" stylesheets="@imat_app.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
 
    <children>
-      <ImageView fx:id="imageView" fitHeight="75.0" fitWidth="100.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <Button layoutX="14.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleAddAction" styleClass="button-1" stylesheets="@imat_app.css" text="Lägg till" AnchorPane.leftAnchor="15.0">
+      <ImageView fx:id="imageView" fitHeight="75.0" fitWidth="97.0" layoutX="42.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="51.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="25.0" prefWidth="78.0" styleClass="button-1" text="Lägg till" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="51.0">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Label fx:id="nameLabel" layoutX="14.0" layoutY="107.0" prefHeight="27.0" prefWidth="122.0" text="Mellanmjök fin produkt för allt möjligt" wrapText="true" AnchorPane.leftAnchor="15.0">
+      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="85.0" prefHeight="54.0" prefWidth="144.0" text="Mellanmjök fin produkt för allt möjligt" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="prizeLabel" layoutX="16.0" layoutY="175.0" text="437,50 per förpackning" AnchorPane.leftAnchor="15.0" />
+      <Label fx:id="prizeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="139.0" prefHeight="20.0" prefWidth="154.0" styleClass="text-sample" text="437,50 per förpackning" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </fx:root>

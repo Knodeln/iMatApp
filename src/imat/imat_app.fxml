@@ -88,9 +88,9 @@
                            <children>
                               <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="587.0" styleClass="background">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="575.0" styleClass="background">
                                        <children>
-                                          <FlowPane fx:id="productFlowPane" hgap="15.0" maxWidth="631.0" minWidth="500.0" prefHeight="76.0" prefWidth="596.0" prefWrapLength="0.0" vgap="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <FlowPane fx:id="productFlowPane" hgap="15.0" maxWidth="631.0" minWidth="500.0" prefHeight="76.0" prefWidth="575.0" prefWrapLength="0.0" vgap="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>

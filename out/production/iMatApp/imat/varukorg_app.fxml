@@ -34,9 +34,9 @@
                      <children>
                         <ScrollPane layoutX="4.0" layoutY="-7.0" prefHeight="511.0" prefWidth="783.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                              <AnchorPane minWidth="700.0" prefHeight="511.0" prefWidth="783.0">
+                              <AnchorPane minWidth="700.0" prefHeight="511.0" prefWidth="750.0">
                                  <children>
-                                    <FlowPane fx:id="varukorgFlowPane" minWidth="700.0" prefWidth="783.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <FlowPane fx:id="varukorgFlowPane" minWidth="600.0" prefWidth="750.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </content>
