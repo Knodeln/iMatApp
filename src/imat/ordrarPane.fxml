@@ -50,7 +50,7 @@
                      <children>
                           <ScrollPane prefHeight="511.0" prefWidth="783.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <content>
-                                  <AnchorPane minWidth="700.0" prefHeight="511.0" prefWidth="783.0">
+                                  <AnchorPane minWidth="700.0" prefHeight="511.0" prefWidth="760.0">
                                  <children>
                                           <FlowPane fx:id="ordersFlowPane" hgap="20.0" minWidth="700.0" onDragDetected="#testAction" prefWidth="742.0" vgap="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>

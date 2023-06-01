@@ -29,7 +29,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@imat_app.css">
                <children>
-                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="button-1" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
+                  <Button fx:id="fortsätt_till_kassan" layoutX="249.0" layoutY="3.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="202.0" styleClass="seq-button" stylesheets="@imat_app.css" text="Personuppgifter" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
